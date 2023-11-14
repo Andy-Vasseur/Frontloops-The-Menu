@@ -1,0 +1,177 @@
+// Imports
+@import 'vars';
+
+// Generals
+*,
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $primary-font;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    background-color: $body-bg;
+}
+
+.App {
+    width: 70vh;
+    height: 85vh;
+    max-height: 85vh;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+
+        &__header {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            margin-bottom: 2rem;
+            width: 100%;
+            height: 10%;
+
+            button {
+                cursor: pointer;
+                width: 100%;
+                height: 100%;
+                border: none;
+                border-right: 1px solid $gray-color;
+                background-color: $button-bg;
+                transition: background-color 200ms ease;
+
+                &:hover {
+                    background-color: $button-bg-hover;
+                }
+
+                &.selected {
+                    border: none;
+                    box-shadow: 0 0 10px 0 rgba($color: black, $alpha: .3);
+                    background-color: $button-bg-hover;
+                    transform: scale(1.1);
+
+                    span {
+
+                        img {
+                            filter: invert(0);
+                        }
+                    }
+                }
+
+                &:last-child {
+                    border-right: none;
+                }
+
+                span {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+
+                    img {
+                        width: 40%;
+                        height: 40%;
+                        filter: invert(30%);
+                    }
+                }
+            }
+        }
+
+        &__main {
+            margin: auto;
+            width: 90%;
+            height: 90%;
+            max-width: 90%;
+            max-height: 90%;
+            background-color: $white-color;
+            overflow: hidden;
+
+            &__header {
+                position: relative;
+                height: 30%;
+
+                &__background {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background-size: cover;
+                    background-position: center;
+                    background-image: url("../img/food.jpg");
+                    filter: brightness(80%);
+                }
+
+                &__text {
+                    position: absolute;
+                    bottom: 10%;
+                    left: 5%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                    color: $white-color;
+
+                    h1 {
+                        font-size: 2.5rem;
+                    }
+
+                    p {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+
+            &__list {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                list-style: none;
+                width: 100%;
+                height: 70%;
+                background-color: purple;
+
+                &__item {
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 0 2rem;
+                    width: 100%;
+                    height: 25%;
+                    max-height: 25%;
+                    color: $lighter-gray-color;
+                    border-bottom: 2px solid $lighter-gray-color;
+                    font-size: 1.3rem;
+                    font-weight: 400;
+                    background-color: $white-color;
+
+                    p {
+                        transition: all 200ms ease;
+                    }
+
+                    &:hover {
+
+                        p {
+                            color: $black-color;
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
